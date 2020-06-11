@@ -1,0 +1,79 @@
+{
+  "name": "react-h5",
+  "version": "1.0.0",
+  "description": "react框架的h5工程",
+  "scripts": {
+    "dev": "cross-env API_ENV=dev webpack-dev-server --inline --progress --config build/webpack.dev.config.js",
+    "test": "cross-env API_ENV=test webpack --config build/webpack.prod.config.js",
+    "build": "cross-env API_ENV=prod webpack --config build/webpack.prod.config.js",
+    "report": "npm run build --report"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.itcast.cn/tianxiaobao/react-h5.git"
+  },
+  "author": "tianxiaobao",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
+    "autoprefixer": "^9.7.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.4.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.1.0",
+    "lib-flexible": "^0.3.2",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "postcss-px2rem-exclude": "0.0.6",
+    "sass-loader": "^8.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.4",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/polyfill": "^7.7.0",
+    "axios": "^0.19.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --color --fix",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 9"
+  ]
+}
