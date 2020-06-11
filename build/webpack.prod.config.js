@@ -1,5 +1,6 @@
 const WebpackMerge = require("webpack-merge");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -17,6 +18,10 @@ module.exports = WebpackMerge(baseWebpackConfig, {
     },
     // 插件
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'static/css/[name].[contenthash:7].css',
+            chunkFilename: 'static/css/[id].[contenthash:7].css'
+        }),
         // 清空dist目录
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({

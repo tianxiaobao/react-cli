@@ -29,5 +29,5 @@ module.exports = WebpackMerge(baseWebpackConfig, {
         }
     },
     // 开发环境调试代码
-    devtool: "inline-source-map"
+    devtool: "cheap-module-eval-source-map"
 });

@@ -31,12 +31,11 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    {
+                    devMode ? 'style-loader' : {
                         loader: MiniCssExtractPlugin.loader, // 提取css
                         options: {
-                            publicPath: '/',
-                            hmr: devMode,
-                        },
+                            publicPath: '/'
+                        }
                     },
                     "css-loader",
                     {
@@ -75,10 +74,6 @@ module.exports = {
     },
     // 插件
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: devMode ? 'static/css/[name].css' : 'static/css/[name].[contenthash:7].css',
-            chunkFilename: devMode ? 'static/css/[id].css' : 'static/css/[id].[contenthash:7].css'
-        }),
         // 配合cross-dev使用
         new webpack.DefinePlugin({
             'process.env.API_ENV': JSON.stringify(process.env.API_ENV)
