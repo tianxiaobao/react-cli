@@ -1,4 +1,3 @@
-import "lib-flexible";
 import React from 'react';
 import ReactDom from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';

@@ -1,6 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require("webpack");
-const px2rem = require("postcss-px2rem-exclude");
 const path = require("path");
 const devMode = process.env.API_ENV === 'dev';
 
@@ -43,11 +42,7 @@ module.exports = {
                         options: {
                             ident: 'postcss',
                             plugins: () => [
-                                require('autoprefixer')(),
-                                px2rem({
-                                    remUnit: 75,
-                                    exclude: /node_modules/i
-                                })
+                                require('autoprefixer')()
                             ]
                         }
                     },
